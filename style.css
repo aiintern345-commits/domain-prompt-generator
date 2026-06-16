@@ -1,183 +1,82 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:30px;
-
-    background:
+/* Form Card */
+.form-card{
+   background: 
     linear-gradient(
-        135deg,
-        #0f172a,
-        #1e293b,
-        #334155
-    );
+        rgba(6,18,40,0.75),
+        rgba(6,18,40,0.75)
+    ),
+    url("https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1920&q=80");
 
-    font-family:'Segoe UI',sans-serif;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+    min-height:100vh;
+    padding:50px 25px;
 }
 
-.container{
+.form-card h2{
+    color:white;
+    margin:32px;
+    font-size:2.2rem;
+    text-align:center;
+}
+
+/* Grid Layout */
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:28px 35px;
+}
+
+/* Each Question Block */
+.input-group{
+    display:flex;
+    flex-direction:column;
+}
+
+/* Question Label */
+.input-group label{
+    margin-bottom:10px;
+    font-size:1.4rem;
+    font-weight:700;
+    color:#ffffff;
+}
+
+/* Input Fields */
+.input-group input,
+.input-group select{
     width:100%;
-    max-width:900px;
+    padding:16px 14px;
+    height:45px;
+
+    border:1px solid #dbe4ee;
+    border-radius:14px;
 
     background:#ffffff;
 
-    padding:40px;
+    font-size:1rem;
 
-    border-radius:24px;
-
-    /* Premium layered shadow */
-    box-shadow:
-        0 10px 25px rgba(0,0,0,0.12),
-        0 20px 50px rgba(0,0,0,0.08),
-        0 35px 80px rgba(0,0,0,0.05);
-
-    transition:0.4s ease;
+    transition:.3s;
 }
 
-.container:hover{
-    transform:translateY(-4px);
-
-    box-shadow:
-        0 15px 35px rgba(0,0,0,0.15),
-        0 30px 70px rgba(0,0,0,0.10),
-        0 45px 100px rgba(0,0,0,0.08);
-}
-
-/* Heading */
-h1{
-    text-align:center;
-    font-size:2.3rem;
-    font-weight:800;
-    color:#111827;
-
-    margin-bottom:35px;
-    position:relative;
-}
-
-/* Stylish underline */
-h1::after{
-    content:"";
-    display:block;
-
-    width:120px;
-    height:4px;
-
-    margin:12px auto 0;
-
-    border-radius:20px;
-
-    background:
-    linear-gradient(
-        90deg,
-        #2563eb,
-        #06b6d4
-    );
-}
-
-.form-group{
-    margin-bottom:18px;
-}
-
-label{
-    display:block;
-    margin-bottom:8px;
-    font-weight:600;
-    color:#334155;
-}
-
-input,
-select,
-textarea{
-    width:100%;
-    padding:13px;
-
-    border:1px solid #d1d5db;
-    border-radius:12px;
-
-    font-size:15px;
-
-    transition:all .3s ease;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
+/* Focus Effect */
+.input-group input:focus,
+.input-group select:focus{
     outline:none;
 
     border-color:#2563eb;
 
     box-shadow:
-        0 0 0 4px rgba(37,99,235,0.15);
+    0 0 0 4px rgba(37,99,235,.15);
 }
 
-textarea{
-    height:350px;
-    margin-top:20px;
-    resize:none;
-}
+/* Buttons Area */
+.btn-section{
+    display:flex;
+    justify-content:center;
+    gap:20px;
 
-/* Buttons */
-button{
-    width:100%;
-    padding:15px;
-    margin-top:12px;
-
-    border:none;
-    border-radius:12px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #2563eb,
-        #1d4ed8
-    );
-
-    color:white;
-    font-size:16px;
-    font-weight:700;
-
-    cursor:pointer;
-
-    transition:all .35s ease;
-}
-
-/* Advanced Hover Effect */
-button:hover{
-
-    transform:
-        translateY(-5px)
-        scale(1.02);
-
-    box-shadow:
-        0 10px 25px rgba(37,99,235,0.35);
-
-    letter-spacing:0.5px;
-}
-
-button:active{
-    transform:
-        translateY(-2px)
-        scale(.98);
-}
-
-/* Copy Button */
-.copy-btn{
-    background:
-    linear-gradient(
-        135deg,
-        #10b981,
-        #059669
-    );
-}
-
-.copy-btn:hover{
-    box-shadow:
-        0 10px 25px rgba(16,185,129,0.35);
+    margin-top:40px;
 }

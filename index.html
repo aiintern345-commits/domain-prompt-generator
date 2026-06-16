@@ -1,113 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>
-        AI Blog & Presentation Prompt Generator
-    </title>
-
-    <link rel="stylesheet"
-          href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Domain Prompt Booklet Generator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <div class="container">
 
-    <h1>
-        AI Blog/Presentation Prompt Generator
-    </h1>
-
-    <div class="form-group">
-
-        <label>Topic</label>
-
-        <input
-                type="text"
-                id="topic"
-                placeholder="Example: Artificial Intelligence">
+    <div class="hero">
+        <h1>📘 AI Domain Prompt Booklet Generator</h1>
+        <p>
+            Generate professional AI prompt libraries for any industry
+            such as BFSI, Healthcare, Retail, Manufacturing and Telecom.
+        </p>
     </div>
 
-    <div class="form-group">
+    <div class="form-card">
 
-        <label>Audience</label>
+        <h2>Domain Information</h2>
 
-        <select id="audience">
+        <div class="form-grid">
 
-            <option>Students</option>
-            <option>Developers</option>
-            <option>Business Executives</option>
-            <option>Investors</option>
-            <option>Beginners</option>
+            <div class="input-group">
+                <label>🏢 Industry Domain</label>
+                <input
+                    type="text"
+                    id="domain"
+                    placeholder="BFSI, Healthcare, Retail..."
+                >
+            </div>
 
-        </select>
+            <div class="input-group">
+                <label>🏛 Company Name</label>
+                <input
+                    type="text"
+                    id="company"
+                    placeholder="ABC Bank"
+                >
+            </div>
+
+            <div class="input-group">
+                <label>🎯 Target Audience</label>
+                <input
+                    type="text"
+                    id="audience"
+                    placeholder="Retail Customers"
+                >
+            </div>
+
+            <div class="input-group">
+                <label>🌍 Market Region</label>
+                <input
+                    type="text"
+                    id="region"
+                    placeholder="India"
+                >
+            </div>
+
+            <div class="input-group">
+                <label>📊 Prompt Count</label>
+                <select id="promptCount">
+                    <option value="5">5 Prompts</option>
+                    <option value="10" selected>10 Prompts</option>
+                    <option value="15">15 Prompts</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="btn-section">
+            <button id="generateBtn">
+                🚀 Generate Booklet
+            </button>
+
+            <button id="downloadBtn">
+                📥 Download Booklet
+            </button>
+        </div>
 
     </div>
 
-    <div class="form-group">
+    <!-- OUTPUT SECTION -->
 
-        <label>Tone</label>
+    <div class="output-section">
 
-        <select id="tone">
+        <h2>
+            📚 Generated Prompt Booklet
+        </h2>
 
-            <option>Professional</option>
-            <option>Technical</option>
-            <option>Academic</option>
-            <option>Conversational</option>
-            <option>Persuasive</option>
-
-        </select>
+        <div id="booklet"></div>
 
     </div>
-
-    <div class="form-group">
-
-        <label>Format</label>
-
-        <select id="format">
-
-            <option value="blog">
-                Blog
-            </option>
-
-            <option value="presentation">
-                Presentation
-            </option>
-
-        </select>
-
-    </div>
-
-    <div class="form-group">
-
-        <label>
-            Word Count / Slides
-        </label>
-
-        <input
-                type="number"
-                id="length"
-                value="10">
-    </div>
-
-    <button onclick="generatePrompt()">
-        Generate Prompt
-    </button>
-
-    <button onclick="copyPrompt()"
-            class="copy-btn">
-        Copy Prompt
-    </button>
-
-    <textarea
-            id="output"
-            readonly
-            placeholder="Generated prompt will appear here...">
-    </textarea>
 
 </div>
 
