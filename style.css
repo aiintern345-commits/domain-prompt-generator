@@ -1,0 +1,82 @@
+/* Form Card */
+.form-card{
+   background: 
+    linear-gradient(
+        rgba(6,18,40,0.75),
+        rgba(6,18,40,0.75)
+    ),
+    url("https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1920&q=80");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+    min-height:100vh;
+    padding:50px 25px;
+}
+
+.form-card h2{
+    color:white;
+    margin:32px;
+    font-size:2.2rem;
+    text-align:center;
+}
+
+/* Grid Layout */
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:28px 35px;
+}
+
+/* Each Question Block */
+.input-group{
+    display:flex;
+    flex-direction:column;
+}
+
+/* Question Label */
+.input-group label{
+    margin-bottom:10px;
+    font-size:1.4rem;
+    font-weight:700;
+    color:#ffffff;
+}
+
+/* Input Fields */
+.input-group input,
+.input-group select{
+    width:100%;
+    padding:16px 14px;
+    height:45px;
+
+    border:1px solid #dbe4ee;
+    border-radius:14px;
+
+    background:#ffffff;
+
+    font-size:1rem;
+
+    transition:.3s;
+}
+
+/* Focus Effect */
+.input-group input:focus,
+.input-group select:focus{
+    outline:none;
+
+    border-color:#2563eb;
+
+    box-shadow:
+    0 0 0 4px rgba(37,99,235,.15);
+}
+
+/* Buttons Area */
+.btn-section{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+
+    margin-top:40px;
+}
