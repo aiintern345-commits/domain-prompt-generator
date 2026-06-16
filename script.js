@@ -1,197 +1,149 @@
-const useCases = [
-    "Market Research",
-    "Customer Persona Development",
-    "Competitor Analysis",
-    "Marketing Strategy",
-    "Risk Assessment",
-    "Product Innovation",
-    "Business Reporting",
-    "Data Analysis",
-    "Customer Support",
-    "Executive Decision Making",
-    "Digital Transformation",
-    "Revenue Growth",
-    "Customer Retention",
-    "Operational Excellence",
-    "AI Adoption Strategy"
-];
+function generatePrompt() {
 
-const booklet = document.getElementById("booklet");
-
-document
-    .getElementById("generateBtn")
-    .addEventListener("click", generateBooklet);
-
-document
-    .getElementById("downloadBtn")
-    .addEventListener("click", downloadBooklet);
-
-function generateBooklet() {
-
-    const domain =
-        document.getElementById("domain").value.trim();
-
-    const company =
-        document.getElementById("company").value.trim();
+    const topic =
+        document.getElementById("topic").value;
 
     const audience =
-        document.getElementById("audience").value.trim();
+        document.getElementById("audience").value;
 
-    const region =
-        document.getElementById("region").value.trim();
+    const tone =
+        document.getElementById("tone").value;
 
-    const count =
-        parseInt(
-            document.getElementById("promptCount").value
-        );
+    const format =
+        document.getElementById("format").value;
 
-    if (!domain) {
-        alert("Please enter a domain.");
-        return;
-    }
+    const length =
+        document.getElementById("length").value;
 
-    booklet.innerHTML = "";
+    let prompt = "";
 
-    useCases
-        .slice(0, count)
-        .forEach((useCase, index) => {
+    if(format === "blog") {
 
-        const prompt = createPrompt(
-            domain,
-            company,
-            audience,
-            region,
-            useCase
-        );
+        prompt = `
 
-        const card = document.createElement("div");
+Write a high-quality SEO blog article.
 
-        card.classList.add("card");
-
-        card.innerHTML = `
-            <div class="card-header">
-                <span class="badge">
-                    Prompt ${index + 1}
-                </span>
-
-                <h3>${useCase}</h3>
-            </div>
-
-            <p class="description">
-                AI prompt template for
-                <strong>${domain}</strong>
-                domain.
-            </p>
-
-            <pre
-                class="prompt"
-                id="prompt-${index}">
-${prompt}
-            </pre>
-
-            <button
-                class="copy-btn"
-                onclick="copyPrompt(${index})">
-                📋 Copy Prompt
-            </button>
-        `;
-
-        booklet.appendChild(card);
-    });
-
-    document
-        .querySelector(".output-section")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
-}
-
-function createPrompt(
-    domain,
-    company,
-    audience,
-    region,
-    useCase
-) {
-
-return `ROLE:
-You are a Senior ${domain} Consultant.
-
-DOMAIN:
-${domain}
-
-COMPANY:
-${company || "[COMPANY NAME]"}
+TOPIC:
+${topic}
 
 TARGET AUDIENCE:
-${audience || "[TARGET AUDIENCE]"}
+${audience}
 
-REGION:
-${region || "[REGION]"}
+TONE:
+${tone}
 
-OBJECTIVE:
-Perform ${useCase}.
+WORD COUNT:
+${length}
 
-DELIVERABLES:
+Requirements:
 
-1. Executive Summary
+1. Generate an engaging title.
 
-2. Industry Trends
+2. Write an introduction.
 
-3. Market Opportunities
+3. Use H2 and H3 headings.
 
-4. Competitive Analysis
+4. Include practical examples.
 
-5. Risks & Challenges
+5. Add latest trends and insights.
 
-6. Strategic Recommendations
+6. Include SEO keywords.
 
-7. KPI Framework
+7. Add FAQs.
 
-8. Implementation Roadmap
+8. Write a strong conclusion.
 
-9. Success Metrics
+9. Use markdown formatting.
 
-10. Conclusion
+10. Keep content engaging.
 
-OUTPUT FORMAT:
-Use tables, bullet points and actionable recommendations.`;
-}
+`;
 
-function copyPrompt(index) {
-
-    const text =
-        document.getElementById(
-            `prompt-${index}`
-        ).innerText;
-
-    navigator.clipboard.writeText(text);
-
-    alert("Prompt Copied Successfully!");
-}
-
-function downloadBooklet() {
-
-    if (!booklet.innerText) {
-        alert("Generate booklet first.");
-        return;
     }
 
-    const blob = new Blob(
-        [booklet.innerText],
-        {
-            type: "text/plain"
-        }
+    else {
+
+        prompt = `
+
+Create a professional presentation.
+
+TOPIC:
+${topic}
+
+AUDIENCE:
+${audience}
+
+TONE:
+${tone}
+
+NUMBER OF SLIDES:
+${length}
+
+For EACH slide provide:
+
+• Slide title
+
+• Key bullet points
+
+• Speaker notes
+
+• Visual recommendation
+
+• Infographic suggestion
+
+• Icon suggestion
+
+Presentation Structure:
+
+Slide 1:
+Title Slide
+
+Slide 2:
+Problem Overview
+
+Slide 3:
+Background
+
+Slide 4:
+Main Concept
+
+Slide 5:
+Case Study
+
+Slide 6:
+Benefits
+
+Slide 7:
+Challenges
+
+Slide 8:
+Future Trends
+
+Slide 9:
+Summary
+
+Slide 10:
+Q&A
+
+`;
+
+    }
+
+    document
+        .getElementById("output")
+        .value = prompt;
+}
+
+function copyPrompt() {
+
+    const text =
+        document.getElementById("output");
+
+    text.select();
+
+    navigator.clipboard.writeText(
+        text.value
     );
 
-    const link =
-        document.createElement("a");
-
-    link.href =
-        URL.createObjectURL(blob);
-
-    link.download =
-        "Domain-Prompt-Booklet.txt";
-
-    link.click();
+    alert("Prompt copied!");
 }
